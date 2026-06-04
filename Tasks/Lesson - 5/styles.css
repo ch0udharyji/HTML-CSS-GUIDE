@@ -1,0 +1,16 @@
+.thumbnail-1 {
+    width: 200px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.thumbnail-2 {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+.thumbnail-3 {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+    border-radius: 100%;
+}
