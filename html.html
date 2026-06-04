@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Cheatsheet</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        .preview-box {
+            background-color: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            overflow-x: auto;
+            color: #333;
+        }
+        .preview-box h1, .preview-box h2, .preview-box h3, .preview-box p {
+            margin-top: 0;
+            color: inherit;
+        }
+        .preview-box table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 0;
+        }
+        .preview-box th, .preview-box td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        .preview-box th {
+            background-color: rgba(0,0,0,0.05);
+        }
+        .preview-box fieldset {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 0;
+        }
+        .preview-box input:not([type="radio"]):not([type="checkbox"]), 
+        .preview-box select, 
+        .preview-box textarea {
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .preview-box button, .preview-box input[type="button"], .preview-box input[type="submit"], .preview-box input[type="reset"] {
+            padding: 6px 12px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .preview-box button:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <button id="mobile-menu-btn" class="mobile-menu-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+            <a href="index.html" style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text-muted)'">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back
+            </a>
+        </div>
+        <a href="css.html" style="background: var(--text); color: var(--bg); padding: 0.5rem 1.25rem; border-radius: 0.25rem; font-weight: 600; text-decoration: none; font-size: 0.9rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">CSS Cheat Sheet &rarr;</a>
+    </nav>
+    
+    <div class="container">
+        <aside id="sidebar" class="sidebar">
+            <div class="search-container">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="search-input" class="search-input" placeholder="Search HTML...">
+            </div>
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-title">HTML Reference</div>
+                    <div class="sidebar-links">
+                        <a href="#sec-1" class="sidebar-link">1. Document & Metadata</a>
+                        <a href="#sec-2" class="sidebar-link">2. Text Formatting</a>
+                        <a href="#sec-3" class="sidebar-link">3. Links & Navigation</a>
+                        <a href="#sec-4" class="sidebar-link">4. Lists</a>
+                        <a href="#sec-5" class="sidebar-link">5. Images & Multimedia</a>
+                        <a href="#sec-6" class="sidebar-link">6. Semantic Layout</a>
+                        <a href="#sec-7" class="sidebar-link">7. Tables</a>
+                        <a href="#sec-8" class="sidebar-link">8. Forms & Inputs</a>
+                        <a href="#sec-9" class="sidebar-link">9. Interactive Elements</a>
+                        <a href="#sec-10" class="sidebar-link">10. Embedded Content</a>
+                        <a href="#sec-11" class="sidebar-link">11. Accessibility (A11y)</a>
+                        <a href="#sec-12" class="sidebar-link">12. Global Attributes</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <h1 class="page-title">HTML Cheatsheet</h1>
+            <p class="page-desc">A perfect, clean, and comprehensive guide to HTML with well-explained live examples.</p>
+            
+            <section id="sec-1" class="content-section">
+                <h2>1. Document Structure & Metadata <a href="#sec-1" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>The Basic Boilerplate</h3>
+                    <p>Every HTML5 document starts with these essential tags to define its structure and metadata.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt; &lt;!-- Declares HTML5 version --&gt;
+&lt;html lang="en"&gt; &lt;!-- Root element with language attribute --&gt;
+  &lt;head&gt;
+    &lt;!-- Metadata: Data about data --&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta name="description" content="Site description for SEO"&gt;
+    
+    &lt;!-- Title & Base --&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+    &lt;base href="https://example.com/"&gt; &lt;!-- Base URL for relative links --&gt;
+    
+    &lt;!-- Styles & Scripts --&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+    &lt;style&gt; /* Inline CSS goes here */ &lt;/style&gt;
+    &lt;script src="script.js" defer&gt;&lt;/script&gt;
+    &lt;noscript&gt;Please enable JavaScript to view this site.&lt;/noscript&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Visible content goes here --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="sec-2" class="content-section">
+                <h2>2. Text Formatting & Hierarchy <a href="#sec-2" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Headings, Paragraphs & Blocks</h3>
+                    <div class="preview-box">
+                        <h1>Heading 1</h1>
+                        <h2>Heading 2</h2>
+                        <h3>Heading 3</h3>
+                        <h4>Heading 4</h4>
+                        <h5>Heading 5</h5>
+                        <h6>Heading 6</h6>
+                        <hr>
+                        <div>A standard <code>&lt;div&gt;</code> block acting as a container.</div>
+                        <p>A paragraph of text with a <br> line break inside it.</p>
+                        <blockquote>"A blockquote is used for extended quotations."</blockquote>
+                        <pre style="background: rgba(0,0,0,0.05); padding: 10px; border-radius: 4px;"><code>A preformatted block
+preserves exact spacing.</code></pre>
+                    </div>
+<pre><code class="language-html">&lt;h1&gt; through &lt;h6&gt; &lt;!-- Headings --&gt;
+&lt;div&gt;Block container&lt;/div&gt;
+&lt;p&gt;Paragraph with a &lt;br&gt; line break.&lt;/p&gt;
+&lt;blockquote&gt;"Extended quotation"&lt;/blockquote&gt;
+&lt;hr&gt; &lt;!-- Thematic break (horizontal line) --&gt;
+&lt;pre&gt;Preformatted text&lt;/pre&gt;</code></pre>
+                </div>
+
+                <div class="entry">
+                    <h3>Inline Semantics & Edits</h3>
+                    <div class="preview-box">
+                        <p>
+                            <strong>Strong (bold)</strong> | <b>Attention (bold)</b> | <em>Emphasized (italic)</em> | <i>Idiomatic (italic)</i><br>
+                            <u>Underlined annotation</u> | <s>Strikethrough</s> | <mark style="background: yellow;">Highlighted</mark><br>
+                            <small>Fine print</small> | <abbr title="HyperText Markup Language">HTML</abbr> | <dfn>Defining instance</dfn><br>
+                            <cite>Title of a Work</cite> | <q>Inline quote</q><br>
+                            <del>Deleted text</del> | <ins>Inserted text</ins><br>
+                            <code>Code snippet</code> | <kbd>Ctrl+C</kbd> | <samp>Sample output</samp> | <var>x</var> = 5<br>
+                            Subscript: H<sub>2</sub>O | Superscript: E=mc<sup>2</sup><br>
+                            <span style="color: blue;">Span container</span> | LongWord<wbr>Opportunity<wbr>To<wbr>Break
+                        </p>
+                    </div>
+<pre><code class="language-html">&lt;!-- Inline Semantics --&gt;
+&lt;strong&gt;Strong&lt;/strong&gt;, &lt;b&gt;Bold&lt;/b&gt;, &lt;em&gt;Emphasis&lt;/em&gt;, &lt;i&gt;Italic&lt;/i&gt;
+&lt;u&gt;Underline&lt;/u&gt;, &lt;s&gt;Strikethrough&lt;/s&gt;, &lt;mark&gt;Highlight&lt;/mark&gt;
+&lt;small&gt;Fine print&lt;/small&gt;, &lt;abbr title="Abbreviation"&gt;Abbr&lt;/abbr&gt;, &lt;dfn&gt;Definition&lt;/dfn&gt;
+&lt;cite&gt;Work Title&lt;/cite&gt;, &lt;q&gt;Inline quote&lt;/q&gt;
+
+&lt;!-- Edits & Code --&gt;
+&lt;del&gt;Deleted&lt;/del&gt;, &lt;ins&gt;Inserted&lt;/ins&gt;
+&lt;code&gt;Code&lt;/code&gt;, &lt;kbd&gt;Key&lt;/kbd&gt;, &lt;samp&gt;Output&lt;/samp&gt;, &lt;var&gt;Var&lt;/var&gt;
+&lt;sub&gt;Sub&lt;/sub&gt;, &lt;sup&gt;Super&lt;/sup&gt;
+
+&lt;!-- Utilities --&gt;
+&lt;span&gt;Inline container&lt;/span&gt;, &lt;wbr&gt; (Word break opportunity)</code></pre>
+                </div>
+            </section>
+
+            <section id="sec-3" class="content-section">
+                <h2>3. Links & Navigation <a href="#sec-3" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Anchor Tags & Nav</h3>
+                    <div class="preview-box">
+                        <nav style="display: flex; gap: 15px;">
+                            <a href="https://example.com" target="_blank" rel="noopener">External Link</a>
+                            <a href="#sec-1">Jump to Top</a>
+                            <a href="mailto:hello@example.com">Email Link</a>
+                            <a href="tel:+1234567890">Phone Link</a>
+                        </nav>
+                    </div>
+<pre><code class="language-html">&lt;nav&gt; &lt;!-- Navigation landmark --&gt;
+  &lt;a href="https://example.com" target="_blank" rel="noopener noreferrer"&gt;External Link&lt;/a&gt;
+  &lt;a href="#section-id"&gt;Anchor Link&lt;/a&gt;
+  &lt;a href="mailto:test@example.com"&gt;Email&lt;/a&gt;
+  &lt;a href="tel:+1234567890"&gt;Phone&lt;/a&gt;
+  &lt;a href="file.pdf" download&gt;Download File&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="sec-4" class="content-section">
+                <h2>4. Lists <a href="#sec-4" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Unordered, Ordered & Description</h3>
+                    <div class="preview-box" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                        <div>
+                            <b>Unordered (ul)</b>
+                            <ul style="margin-top: 5px; padding-left: 20px;">
+                                <li>Apple</li>
+                                <li>Banana</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <b>Ordered (ol)</b>
+                            <ol type="I" start="3" reversed style="margin-top: 5px; padding-left: 20px;">
+                                <li>Third</li>
+                                <li>Second</li>
+                            </ol>
+                        </div>
+                        <div>
+                            <b>Description (dl)</b>
+                            <dl style="margin-top: 5px;">
+                                <dt style="font-weight: bold;">HTML</dt>
+                                <dd style="margin-left: 15px;">Markup Language</dd>
+                            </dl>
+                        </div>
+                    </div>
+<pre><code class="language-html">&lt;!-- Unordered List --&gt;
+&lt;ul&gt;
+  &lt;li&gt;Apple&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered List (with attributes) --&gt;
+&lt;ol type="I" start="3" reversed&gt;
+  &lt;li&gt;Third&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Description List --&gt;
+&lt;dl&gt;
+  &lt;dt&gt;Term&lt;/dt&gt;
+  &lt;dd&gt;Description&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="sec-5" class="content-section">
+                <h2>5. Images & Multimedia <a href="#sec-5" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Images, Art Direction, Audio, Video & SVG</h3>
+                    <div class="preview-box">
+                        <picture>
+                            <source media="(min-width: 600px)" srcset="https://picsum.photos/400/100">
+                            <img src="https://picsum.photos/200/100" alt="Sample Image" loading="lazy" style="border-radius: 4px; max-width: 100%;">
+                        </picture>
+                        <br><br>
+                        <audio controls style="width: 100%; max-width: 300px;">
+                            <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                        </audio>
+                        <br><br>
+                        <video controls width="100%" max-width="300">
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        </video>
+                        <br><br>
+                        <svg width="100" height="100" style="background: #f0f0f0; border-radius: 4px;">
+                            <rect x="10" y="10" width="80" height="80" fill="#3b82f6" rx="10" />
+                            <circle cx="50" cy="50" r="20" fill="white" />
+                            <path d="M40 40 L60 60 M60 40 L40 60" stroke="#3b82f6" stroke-width="4" />
+                        </svg>
+                    </div>
+<pre><code class="language-html">&lt;!-- Image --&gt;
+&lt;img src="img.jpg" alt="Description" loading="lazy" srcset="img-1x.jpg 1x, img-2x.jpg 2x" sizes="100vw"&gt;
+
+&lt;!-- Responsive Picture --&gt;
+&lt;picture&gt;
+  &lt;source media="(min-width: 600px)" srcset="large.jpg"&gt;
+  &lt;img src="small.jpg" alt="..."&gt;
+&lt;/picture&gt;
+
+&lt;!-- Audio --&gt;
+&lt;audio controls autoplay loop&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;
+
+&lt;!-- Video --&gt;
+&lt;video controls&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  &lt;track src="subtitles.vtt" kind="subtitles"&gt;
+&lt;/video&gt;
+
+&lt;!-- Vector Graphics (SVG) --&gt;
+&lt;svg&gt;
+  &lt;rect width="100" height="100" /&gt;
+  &lt;circle cx="50" cy="50" r="40" /&gt;
+  &lt;path d="M10 10 L90 90" /&gt;
+&lt;/svg&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="sec-6" class="content-section">
+                <h2>6. Semantic Layout (HTML5) <a href="#sec-6" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Architecture Tags</h3>
+                    <p>Semantic tags describe their meaning to both the browser and the developer.</p>
+<pre><code class="language-html">&lt;header&gt; &lt;!-- Page/section header --&gt;
+  &lt;hgroup&gt; &lt;!-- Group of headings --&gt;
+    &lt;h1&gt;Main Title&lt;/h1&gt;
+    &lt;p&gt;Subtitle&lt;/p&gt;
+  &lt;/hgroup&gt;
+&lt;/header&gt;
+
+&lt;main&gt; &lt;!-- Dominant content area --&gt;
+  &lt;article&gt; &lt;!-- Independent, self-contained content --&gt;
+    &lt;section&gt; &lt;!-- Thematic grouping --&gt;
+      &lt;figure&gt; &lt;!-- Grouping media --&gt;
+        &lt;img src="..."&gt;
+        &lt;figcaption&gt;Image caption&lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/section&gt;
+  &lt;/article&gt;
+  &lt;aside&gt; &lt;!-- Indirectly related content / Sidebar --&gt; &lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt; &lt;!-- Page/section footer --&gt; &lt;/footer&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="sec-7" class="content-section">
+                <h2>7. Tables <a href="#sec-7" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Structure & Formatting</h3>
+                    <div class="preview-box">
+                        <table>
+                            <caption style="font-weight: bold; margin-bottom: 8px;">Employee Data</caption>
+                            <colgroup>
+                                <col style="background: rgba(0,0,0,0.02);">
+                                <col span="2" style="background: rgba(59, 130, 246, 0.05);">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th rowspan="2">ID</th>
+                                    <th colspan="2" style="text-align: center;">Details</th>
+                                </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Alice</td>
+                                    <td>Admin</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" style="text-align: right; font-weight: bold;">Total: 1</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+<pre><code class="language-html">&lt;table&gt;
+  &lt;caption&gt;Employee Data&lt;/caption&gt;
+  &lt;colgroup&gt;
+    &lt;col style="background: gray"&gt;
+    &lt;col span="2"&gt;
+  &lt;/colgroup&gt;
+  
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th rowspan="2"&gt;ID&lt;/th&gt;
+      &lt;th colspan="2"&gt;Details&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Role&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Alice&lt;/td&gt;
+      &lt;td&gt;Admin&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;Total: 1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="sec-8" class="content-section">
+                <h2>8. Forms & Inputs <a href="#sec-8" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Form Wrapper, Grouping & Elements</h3>
+                    <div class="preview-box">
+                        <form action="#" method="POST" enctype="multipart/form-data" onsubmit="event.preventDefault();">
+                            <fieldset>
+                                <legend style="font-weight: bold; padding: 0 5px;">Registration</legend>
+                                
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; align-items: center; margin-bottom: 15px;">
+                                    <div>
+                                        <label for="demo-txt" style="display: block; margin-bottom: 4px;">Text:</label>
+                                        <input type="text" id="demo-txt" placeholder="Enter text" required autofocus autocomplete="name" style="width: 100%;">
+                                    </div>
+                                    <div>
+                                        <label for="demo-pwd" style="display: block; margin-bottom: 4px;">Password:</label>
+                                        <input type="password" id="demo-pwd" value="secret" readonly style="width: 100%;">
+                                    </div>
+                                    <div>
+                                        <label for="demo-email" style="display: block; margin-bottom: 4px;">Email (Disabled):</label>
+                                        <input type="email" id="demo-email" value="no@mail.com" disabled style="width: 100%;">
+                                    </div>
+                                    <div>
+                                        <label for="demo-num" style="display: block; margin-bottom: 4px;">Number (0-10):</label>
+                                        <input type="number" id="demo-num" min="0" max="10" step="1" value="5" style="width: 100%;">
+                                    </div>
+                                </div>
+
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; align-items: center; margin-bottom: 15px;">
+                                    <div>
+                                        <label><input type="checkbox" checked> Checkbox</label>
+                                        <label style="margin-left: 10px;"><input type="radio" name="r1" checked> Radio</label>
+                                    </div>
+                                    <div>
+                                        <label style="display: block; margin-bottom: 4px;">Range:</label>
+                                        <input type="range" min="0" max="100" value="75" style="width: 100%;">
+                                    </div>
+                                    <div>
+                                        <label style="display: block; margin-bottom: 4px;">Pickers:</label>
+                                        <div style="display: flex; gap: 5px;">
+                                            <input type="color" value="#3b82f6" style="padding: 0; width: 40px; height: 35px;">
+                                            <input type="date" style="flex: 1;">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label style="display: block; margin-bottom: 4px;">File:</label>
+                                        <input type="file" style="width: 100%;">
+                                    </div>
+                                </div>
+
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                                    <div>
+                                        <label style="display: block; margin-bottom: 4px;">Textarea:</label>
+                                        <textarea rows="3" style="width: 100%;"></textarea>
+                                    </div>
+                                    <div>
+                                        <label style="display: block; margin-bottom: 4px;">Select & Datalist:</label>
+                                        <select style="width: 100%; margin-bottom: 5px;">
+                                            <optgroup label="Group">
+                                                <option>Option 1</option>
+                                            </optgroup>
+                                        </select>
+                                        <input list="browsers-list" placeholder="Browser datalist..." style="width: 100%;">
+                                        <datalist id="browsers-list">
+                                            <option value="Chrome">
+                                            <option value="Firefox">
+                                        </datalist>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
+                                    <output>Output: 42</output>
+                                    <meter value="0.7" min="0" max="1" style="flex: 1;"></meter>
+                                    <progress value="50" max="100" style="flex: 1;"></progress>
+                                </div>
+
+                                <div style="display: flex; gap: 10px;">
+                                    <button type="submit">Submit</button>
+                                    <button type="reset" style="background: #e5e7eb; color: #333;">Reset</button>
+                                    <button type="button" style="background: #10b981;">Button</button>
+                                    <input type="image" src="https://picsum.photos/30/30" alt="Image Button" style="border-radius: 4px;">
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+<pre><code class="language-html">&lt;form action="/api" method="POST" enctype="multipart/form-data"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Form Title&lt;/legend&gt;
+    
+    &lt;!-- Labels & Inputs --&gt;
+    &lt;label for="usr"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="usr" placeholder="John" required disabled readonly autofocus autocomplete="name" pattern="[A-Za-z]+"&gt;
+    
+    &lt;!-- Textual --&gt;
+    &lt;input type="password"&gt; &lt;input type="email"&gt; &lt;input type="url"&gt;
+    &lt;input type="search"&gt; &lt;input type="tel"&gt; &lt;input type="hidden"&gt;
+    
+    &lt;!-- Numeric & Selection --&gt;
+    &lt;input type="number" min="0" max="10" step="1"&gt;
+    &lt;input type="range"&gt;
+    &lt;input type="checkbox"&gt; &lt;input type="radio"&gt;
+    
+    &lt;!-- Pickers --&gt;
+    &lt;input type="color"&gt; &lt;input type="file"&gt;
+    &lt;input type="date"&gt; &lt;input type="time"&gt; &lt;input type="datetime-local"&gt;
+    &lt;input type="month"&gt; &lt;input type="week"&gt;
+    
+    &lt;!-- Other Controls --&gt;
+    &lt;textarea rows="3"&gt;&lt;/textarea&gt;
+    &lt;select&gt;
+      &lt;optgroup label="Options"&gt;&lt;option&gt;A&lt;/option&gt;&lt;/optgroup&gt;
+    &lt;/select&gt;
+    
+    &lt;input list="list-id"&gt;
+    &lt;datalist id="list-id"&gt;&lt;option value="Item"&gt;&lt;/datalist&gt;
+    
+    &lt;output&gt;Result&lt;/output&gt;
+    &lt;meter value="0.7" min="0" max="1"&gt;&lt;/meter&gt;
+    &lt;progress value="50" max="100"&gt;&lt;/progress&gt;
+    
+    &lt;!-- Buttons --&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;button type="reset"&gt;Reset&lt;/button&gt;
+    &lt;button type="button"&gt;Normal&lt;/button&gt;
+    &lt;input type="image" src="icon.png" alt="Submit"&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="sec-9" class="content-section">
+                <h2>9. Interactive Elements <a href="#sec-9" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Modals, Accordions & Dropdowns</h3>
+                    <div class="preview-box">
+                        <details style="padding: 10px; background: white; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 15px;">
+                            <summary style="font-weight: bold; cursor: pointer;">Native Accordion (Click me)</summary>
+                            <p style="margin-top: 10px; margin-bottom: 0;">Hidden content revealed without JS!</p>
+                        </details>
+                        
+                        <button onclick="document.getElementById('demo-modal').showModal()">Open Native Dialog</button>
+                        <dialog id="demo-modal" style="padding: 20px; border-radius: 8px; border: 1px solid #ccc; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                            <h3 style="margin-top: 0;">HTML5 Dialog</h3>
+                            <p>This is a native modal.</p>
+                            <form method="dialog">
+                                <button style="background: #ef4444;">Close</button>
+                            </form>
+                        </dialog>
+                    </div>
+<pre><code class="language-html">&lt;!-- Native Dropdown/Accordion --&gt;
+&lt;details&gt;
+  &lt;summary&gt;Click to expand&lt;/summary&gt;
+  &lt;p&gt;Hidden content.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;!-- Native Modal Dialog --&gt;
+&lt;dialog id="myDialog"&gt;
+  &lt;h3&gt;Title&lt;/h3&gt;
+  &lt;form method="dialog"&gt;
+    &lt;button&gt;Close&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/dialog&gt;
+
+&lt;button onclick="document.getElementById('myDialog').showModal()"&gt;Open&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="sec-10" class="content-section">
+                <h2>10. Embedded Content <a href="#sec-10" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Iframes, Objects, Plugins & Canvas</h3>
+                    <div class="preview-box">
+                        <canvas id="canvas-demo" width="100" height="50" style="border: 1px solid #ccc; border-radius: 4px; background: white; margin-bottom: 10px;"></canvas>
+                        <script>
+                            let ctx = document.getElementById('canvas-demo').getContext('2d');
+                            ctx.fillStyle = '#3b82f6'; ctx.fillRect(10, 10, 80, 30);
+                        </script>
+                        <br>
+                        <iframe src="https://example.com" width="100%" height="150" style="border: 1px solid #ccc; border-radius: 4px;"></iframe>
+                    </div>
+<pre><code class="language-html">&lt;!-- Iframe (Embed another webpage) --&gt;
+&lt;iframe src="https://example.com" width="100%" height="300"&gt;&lt;/iframe&gt;
+
+&lt;!-- Legacy Objects / Embeds --&gt;
+&lt;object data="video.mp4" width="100%" height="300"&gt;
+  &lt;param name="autoplay" value="true"&gt;
+&lt;/object&gt;
+&lt;embed src="plugin.swf"&gt;
+
+&lt;!-- Canvas (Graphics drawn via JS) --&gt;
+&lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="sec-11" class="content-section">
+                <h2>11. Accessibility (A11y) Best Practices <a href="#sec-11" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>ARIA Roles, States & Focus</h3>
+                    <p>Mandatory attributes for Screen Readers and assistive technologies.</p>
+<pre><code class="language-html">&lt;!-- ARIA Roles --&gt;
+&lt;div role="alert"&gt;Error occurred!&lt;/div&gt;
+&lt;div role="button" tabindex="0"&gt;Div acting as a button&lt;/div&gt;
+&lt;nav role="navigation"&gt;&lt;/nav&gt;
+
+&lt;!-- ARIA States --&gt;
+&lt;button aria-expanded="false"&gt;Menu&lt;/button&gt;
+&lt;ul aria-hidden="true"&gt;&lt;/ul&gt;
+&lt;input aria-invalid="true"&gt;
+&lt;button aria-pressed="false"&gt;Toggle&lt;/button&gt;
+
+&lt;!-- Screen Reader Labels --&gt;
+&lt;button aria-label="Close dialog"&gt;X&lt;/button&gt;
+&lt;input aria-labelledby="label-id" aria-describedby="desc-id"&gt;
+
+&lt;!-- Focus Management --&gt;
+&lt;div tabindex="0"&gt;Focusable div&lt;/div&gt;
+&lt;a href="#" tabindex="-1"&gt;Unfocusable link&lt;/a&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="sec-12" class="content-section">
+                <h2>12. Global Attributes <a href="#sec-12" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Attributes applied to any HTML element</h3>
+                    <div class="preview-box">
+                        <div class="demo-class" id="demo-id" style="padding: 10px; background: white; border: 1px dashed #3b82f6; border-radius: 4px;" title="Hover Tooltip" contenteditable="true" draggable="true" data-custom="123" lang="en" dir="ltr">
+                            This block uses id, class, style, title, hidden, data-*, contenteditable, draggable, lang, and dir.
+                        </div>
+                    </div>
+<pre><code class="language-html">&lt;div class="box" id="unique"&gt;&lt;/div&gt;
+&lt;div style="color: red;"&gt;&lt;/div&gt;
+&lt;div title="Tooltip"&gt;&lt;/div&gt;
+&lt;div hidden&gt;Invisible&lt;/div&gt;
+&lt;div data-custom="123"&gt;Custom JS Data&lt;/div&gt;
+&lt;div contenteditable="true"&gt;Editable by user&lt;/div&gt;
+&lt;div draggable="true"&gt;Drag me&lt;/div&gt;
+&lt;div lang="en" dir="ltr"&gt;Language & Direction&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6" /></svg>
+    </button>
+    
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+</body>
+</html>

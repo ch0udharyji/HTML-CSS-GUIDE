@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Terms - Cheat Sheet</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .term-desc {
+        margin-bottom: 1rem;
+        color: var(--text);
+        line-height: 1.6;
+      }
+      .term-desc strong {
+        color: #3b82f6; /* Accent color for bold labels */
+        font-weight: 600;
+      }
+      .error-box {
+        background: rgba(239, 68, 68, 0.1);
+        border-left: 4px solid #ef4444;
+        padding: 1rem;
+        border-radius: 0.25rem;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .error-box strong {
+        color: #fca5a5;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div style="display: flex; align-items: center; gap: 1rem">
+        <button id="mobile-menu-btn" class="mobile-menu-btn">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <a
+          href="index.html"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+          "
+          onmouseover="this.style.color = 'var(--text)'"
+          onmouseout="this.style.color = 'var(--text-muted)'"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          Back to Home
+        </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <aside id="sidebar" class="sidebar">
+        <div class="search-container">
+          <svg
+            class="search-icon"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Search Terms..."
+          />
+        </div>
+        <nav class="sidebar-nav">
+          <div class="sidebar-group">
+            <div class="sidebar-title">HTML & Files</div>
+            <div class="sidebar-links">
+              <a href="#term-tags-vs-elements" class="sidebar-link"
+                >Tags vs Elements</a
+              >
+              <a href="#term-self-closing" class="sidebar-link"
+                >Self-Closing Tags</a
+              >
+              <a href="#term-head-vs-body" class="sidebar-link"
+                >&lt;head&gt; vs &lt;body&gt;</a
+              >
+              <a href="#term-paths" class="sidebar-link">File Paths (URLs)</a>
+              <a href="#term-div" class="sidebar-link">&lt;div&gt; Element</a>
+              <a href="#term-span" class="sidebar-link">&lt;span&gt; Element</a>
+              <a href="#term-semantic" class="sidebar-link">Semantic Tags</a>
+              <a href="#term-attributes" class="sidebar-link">Attributes</a>
+              <a href="#term-viewport" class="sidebar-link">Viewport Meta</a>
+              <a href="#term-dom" class="sidebar-link">The DOM</a>
+            </div>
+          </div>
+          <div class="sidebar-group">
+            <div class="sidebar-title">CSS Mechanics</div>
+            <div class="sidebar-links">
+              <a href="#term-selector" class="sidebar-link">Selectors</a>
+              <a href="#term-cascade" class="sidebar-link">The Cascade</a>
+              <a href="#term-inheritance" class="sidebar-link">Inheritance</a>
+              <a href="#term-specificity" class="sidebar-link">Specificity</a>
+              <a href="#term-box-model" class="sidebar-link">Box Model</a>
+              <a href="#term-display" class="sidebar-link">Display Property</a>
+              <a href="#term-positioning" class="sidebar-link">Positioning</a>
+              <a href="#term-z-index" class="sidebar-link">Z-Index</a>
+              <a href="#term-units" class="sidebar-link">CSS Units</a>
+              <a href="#term-colors" class="sidebar-link">Color Formats</a>
+              <a href="#term-media-queries" class="sidebar-link"
+                >Media Queries</a
+              >
+              <a href="#term-vendor-prefixes" class="sidebar-link"
+                >Vendor Prefixes</a
+              >
+            </div>
+          </div>
+          <div class="sidebar-group">
+            <div class="sidebar-title">The Web & Browser</div>
+            <div class="sidebar-links">
+              <a href="#term-client-server" class="sidebar-link"
+                >Client vs Server</a
+              >
+              <a href="#term-http-https" class="sidebar-link">HTTP vs HTTPS</a>
+              <a href="#term-cache" class="sidebar-link">Browser Cache</a>
+              <a href="#term-devtools" class="sidebar-link">Developer Tools</a>
+              <a href="#term-minification" class="sidebar-link">Minification</a>
+              <a href="#term-seo" class="sidebar-link">SEO & A11y</a>
+            </div>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <h1 class="page-title">Basic Terms & Concepts</h1>
+        <p class="page-desc">
+          The absolute beginner's dictionary. Understand exactly what these
+          foundational building blocks are and how to avoid common mistakes.
+        </p>
+
+        <!-- HTML & FILES -->
+        <section id="term-tags-vs-elements" class="content-section">
+          <h2>
+            Tags vs. Elements vs. Attributes
+            <a href="#term-tags-vs-elements" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What are they?</strong> This is the fundamental vocabulary
+              of HTML.
+            </p>
+            <p class="term-desc">
+              - A <strong>Tag</strong> is the keyword enclosed in brackets:
+              <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code>.
+            </p>
+            <p class="term-desc">
+              - An <strong>Attribute</strong> is extra info inside the opening
+              tag: <code>class="text"</code>.
+            </p>
+            <p class="term-desc">
+              - An <strong>Element</strong> is the <em>entire</em> thing: the
+              opening tag, the content, and the closing tag.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Incorrect Vocabulary</strong><br />Saying
+                "I added a class tag." You added a class <em>attribute</em> to
+                an <em>element</em>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-self-closing" class="content-section">
+          <h2>
+            Self-Closing Tags
+            <a href="#term-self-closing" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> Elements that don't wrap around text
+              or other elements, so they don't need a closing tag (like
+              <code>&lt;/img&gt;</code>). Also called "empty elements".
+            </p>
+            <p class="term-desc">
+              <strong>Examples:</strong> <code>&lt;img&gt;</code>,
+              <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code>,
+              <code>&lt;input&gt;</code>.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Trying to nest content inside them</strong
+                ><br />Writing
+                <code>&lt;img src="x.jpg"&gt;Text&lt;/img&gt;</code>. This is
+                invalid HTML and the browser will ignore or break it.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-head-vs-body" class="content-section">
+          <h2>
+            &lt;head&gt; vs. &lt;body&gt;
+            <a href="#term-head-vs-body" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> The strict division of an HTML
+              document.
+            </p>
+            <p class="term-desc">
+              <strong>Why use it?</strong> The
+              <code>&lt;head&gt;</code> contains metadata (invisible settings,
+              CSS links, SEO data). The <code>&lt;body&gt;</code> contains the
+              actual visible content of the page.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Visible content in the head</strong
+                ><br />Accidentally putting an <code>&lt;h1&gt;</code> or an
+                image inside the <code>&lt;head&gt;</code>. The browser will
+                forcefully eject it into the body, sometimes breaking your
+                layout in the process.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-paths" class="content-section">
+          <h2>
+            File Paths (URLs) <a href="#term-paths" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> How you link to images, CSS, or other
+              pages.
+            </p>
+            <p class="term-desc">
+              <strong>Absolute:</strong> The full web address starting with
+              <code>https://...</code>
+            </p>
+            <p class="term-desc">
+              <strong>Relative:</strong> Pointing to a file on your own
+              computer/server. <code>./</code> means "current folder".
+              <code>../</code> means "go up one folder level".
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Hardcoding local paths</strong
+                ><br />Writing
+                <code>src="C:/Users/Bob/Desktop/image.jpg"</code>. This works on
+                your computer, but will immediately break when you upload your
+                website to the internet.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-div" class="content-section">
+          <h2>
+            &lt;div&gt; (Division) <a href="#term-div" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> A generic block-level container with
+              absolutely no special meaning.
+            </p>
+            <p class="term-desc">
+              <strong>Why use it?</strong> Used to group elements together for
+              styling with CSS or manipulating with JavaScript.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: "Div Soup"</strong><br />Nesting too many
+                meaningless <code>&lt;div&gt;</code>s instead of using semantic
+                HTML. This hurts accessibility (screen readers) and SEO.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-span" class="content-section">
+          <h2>&lt;span&gt; <a href="#term-span" class="anchor-link">#</a></h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> A generic <em>inline</em> container.
+              Like a div, it has no meaning, but it does not force a line break.
+            </p>
+            <p class="term-desc">
+              <strong>Why use it?</strong> To target a specific chunk of text
+              inside a paragraph to style it differently (e.g., making one word
+              blue).
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Block inside Inline</strong><br />Putting
+                a block element (like a <code>&lt;div&gt;</code>) inside a
+                <code>&lt;span&gt;</code> is invalid HTML and breaks layouts.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-semantic" class="content-section">
+          <h2>
+            Semantic Tags <a href="#term-semantic" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> HTML tags that describe their meaning
+              to the browser (e.g., <code>&lt;header&gt;</code>,
+              <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>).
+            </p>
+            <p class="term-desc">
+              <strong>Why use it?</strong> Crucial for screen readers and search
+              engines to understand page structure.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Misusing &lt;section&gt;</strong
+                ><br />Using a <code>&lt;section&gt;</code> purely as a styling
+                wrapper. A section should logically group related content and
+                usually contains a heading.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-attributes" class="content-section">
+          <h2>
+            Attributes (Classes & IDs)
+            <a href="#term-attributes" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> Identifiers added to tags:
+              <code>class=""</code> and <code>id=""</code>.
+            </p>
+            <p class="term-desc">
+              <strong>Why use it?</strong> To provide hooks for CSS and JS to
+              grab onto.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Duplicate IDs</strong><br />An
+                <code>id</code> must be 100% unique on a page. Using the same ID
+                twice breaks JavaScript selection logic. If you need it twice,
+                use a <code>class</code>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-viewport" class="content-section">
+          <h2>
+            The Viewport Meta Tag
+            <a href="#term-viewport" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong>
+              <code
+                >&lt;meta name="viewport" content="width=device-width,
+                initial-scale=1.0"&gt;</code
+              >
+            </p>
+            <p class="term-desc">
+              <strong>Why use it?</strong> It forces mobile browsers to render
+              the page at the exact width of the phone screen, rather than
+              zooming out to show a tiny desktop version.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Forgetting it</strong><br />If your media
+                queries aren't working on your phone, it's almost always because
+                you forgot to include this tag in the <code>&lt;head&gt;</code>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-dom" class="content-section">
+          <h2>
+            The DOM (Document Object Model)
+            <a href="#term-dom" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> The browser's internal map of your
+              HTML. It builds a "tree" of objects in memory.
+            </p>
+            <p class="term-desc">
+              <strong>Why it matters?</strong> JavaScript doesn't read your HTML
+              file directly; it interacts with the DOM to change the page
+              dynamically.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: DOM Not Loaded</strong><br />Trying to run
+                JavaScript before the browser has finished building the DOM
+                results in "Element is null" errors. Fix by placing
+                <code>&lt;script&gt;</code> at the bottom of the body or using
+                the <code>defer</code> attribute.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CSS MECHANICS -->
+        <section id="term-selector" class="content-section">
+          <h2>
+            CSS Selectors <a href="#term-selector" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> The part of the CSS rule that
+              dictates exactly which HTML element(s) you are trying to style
+              (e.g., <code>.btn</code> or <code>#header</code>).
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Missing the Dot or Hash</strong
+                ><br />Writing <code>container { ... }</code> instead of
+                <code>.container { ... }</code>. Without the dot, CSS thinks you
+                are looking for an HTML tag literally named
+                <code>&lt;container&gt;</code>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-cascade" class="content-section">
+          <h2>The Cascade <a href="#term-cascade" class="anchor-link">#</a></h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> The "C" in CSS. It's the algorithm
+              the browser uses to decide what styles apply. The fundamental rule
+              is: styles written further down in the document overwrite styles
+              written earlier.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: CSS File Order</strong><br />Linking your
+                custom CSS file <em>before</em> a framework's CSS file in the
+                HTML. The framework will overwrite your custom code because it
+                loads last.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-inheritance" class="content-section">
+          <h2>
+            CSS Inheritance
+            <a href="#term-inheritance" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> The behavior where certain CSS
+              properties (mostly typography like <code>color</code> and
+              <code>font-family</code>) automatically pass down from parent
+              elements to child elements.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Expecting everything to inherit</strong
+                ><br />Properties like <code>border</code>,
+                <code>padding</code>, and <code>margin</code> do
+                <em>not</em> inherit. You cannot set
+                <code>padding: 10px</code> on the body and expect every child to
+                have padding.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-specificity" class="content-section">
+          <h2>
+            CSS Specificity
+            <a href="#term-specificity" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> The point-scoring system browsers use
+              to resolve conflicts when multiple rules target the same element.
+            </p>
+            <p class="term-desc">
+              <strong>Hierarchy:</strong> Inline Styles > IDs > Classes >
+              Element Tags.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: The !important Trap</strong><br />Using
+                <code>!important</code> to force a style to win. This breaks the
+                natural cascade and makes your CSS incredibly difficult to
+                maintain and overwrite later.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-box-model" class="content-section">
+          <h2>
+            The Box Model <a href="#term-box-model" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> The concept that every HTML element
+              is a rectangular box comprising: Content, Padding (inner space),
+              Border, and Margin (outer space).
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Width Blowouts</strong><br />By default,
+                padding is ADDED to an element's defined width, causing it to
+                overflow the screen. Fix this globally by setting
+                <code>* { box-sizing: border-box; }</code>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-display" class="content-section">
+          <h2>
+            Display Property <a href="#term-display" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> Determines how an element takes up
+              space. <code>block</code> takes the full width.
+              <code>inline</code> wraps with text. <code>none</code> hides it
+              entirely.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Sizing Inline Elements</strong
+                ><br />Trying to set a <code>width</code> or top/bottom
+                <code>margin</code> on an <code>inline</code> element (like a
+                <code>&lt;span&gt;</code>). It won't work! You must change it to
+                <code>display: inline-block;</code> or <code>block</code> first.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-positioning" class="content-section">
+          <h2>
+            Positioning <a href="#term-positioning" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> Taking elements out of the normal
+              top-to-bottom document flow.
+            </p>
+            <p class="term-desc">
+              <strong>Types:</strong> <code>relative</code>,
+              <code>absolute</code>, <code>fixed</code>, <code>sticky</code>.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Escaping Absolute Elements</strong
+                ><br />Giving a child <code>position: absolute;</code> but
+                forgetting to give its parent <code>position: relative;</code>.
+                The child will fly up the page and position itself relative to
+                the entire screen.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-z-index" class="content-section">
+          <h2>Z-Index <a href="#term-z-index" class="anchor-link">#</a></h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> Controls the 3D depth (stacking
+              order) of elements on the page.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Z-Index does nothing</strong><br /><code
+                  >z-index</code
+                >
+                only works on elements that have a <code>position</code> value
+                other than <code>static</code> (e.g., relative or absolute). If
+                it's static, z-index is ignored.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-units" class="content-section">
+          <h2>CSS Units <a href="#term-units" class="anchor-link">#</a></h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> How we measure size.
+              <code>px</code> (absolute pixels), <code>rem</code> (relative to
+              root font size), <code>%</code> (percentage of parent),
+              <code>vh/vw</code> (percentage of the screen/viewport).
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Using px for fonts</strong><br />Setting
+                fonts in <code>px</code> prevents visually impaired users from
+                scaling up the text using their browser preferences. Always use
+                <code>rem</code> for typography.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-colors" class="content-section">
+          <h2>
+            Color Formats (Hex, RGB, HSL)
+            <a href="#term-colors" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> How browsers read colors.
+            </p>
+            <p class="term-desc">
+              <strong>Hex:</strong> <code>#ff0000</code> (Base-16 alphanumeric
+              code).
+            </p>
+            <p class="term-desc">
+              <strong>RGB:</strong> <code>rgb(255, 0, 0)</code> (Red, Green,
+              Blue integers).
+            </p>
+            <p class="term-desc">
+              <strong>HSL:</strong> <code>hsl(0, 100%, 50%)</code> (Hue,
+              Saturation, Lightness - easiest for humans to tweak
+              mathematically).
+            </p>
+          </div>
+        </section>
+
+        <section id="term-media-queries" class="content-section">
+          <h2>
+            Media Queries
+            <a href="#term-media-queries" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> CSS rules wrapped in a condition
+              (e.g., <code>@media (max-width: 768px)</code>). It's the engine
+              behind all Responsive Design.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Desktop-First design</strong><br />Writing
+                all your desktop CSS first and then struggling to crush it down
+                for mobile. Best practice is "Mobile-First": write the mobile
+                CSS natively, and use <code>min-width</code> queries to expand
+                it for desktop.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-vendor-prefixes" class="content-section">
+          <h2>
+            Vendor Prefixes
+            <a href="#term-vendor-prefixes" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> Strings like
+              <code>-webkit-</code> (Chrome/Safari) or
+              <code>-moz-</code> (Firefox) placed before experimental CSS
+              properties.
+            </p>
+            <p class="term-desc">
+              <strong>Why use it?</strong> It allows developers to use brand-new
+              CSS features before they are fully officially adopted by the web
+              standards committee.
+            </p>
+          </div>
+        </section>
+
+        <!-- WEB & BROWSER -->
+        <section id="term-client-server" class="content-section">
+          <h2>
+            Client vs. Server
+            <a href="#term-client-server" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>Client (Frontend):</strong> The user's web browser. It
+              parses HTML, paints CSS, and executes JavaScript.
+            </p>
+            <p class="term-desc">
+              <strong>Server (Backend):</strong> A computer sitting in a data
+              center somewhere. It holds a database and sends the HTML/CSS files
+              to the Client when requested.
+            </p>
+          </div>
+        </section>
+
+        <section id="term-http-https" class="content-section">
+          <h2>
+            HTTP vs. HTTPS <a href="#term-http-https" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> The language/protocol computers use
+              to talk to each other over the web.
+            </p>
+            <p class="term-desc">
+              <strong>The "S":</strong> Stands for Secure. Without HTTPS, any
+              data a user types (like passwords) is sent as plain, readable text
+              over the internet. Browsers now heavily penalize non-HTTPS sites.
+            </p>
+          </div>
+        </section>
+
+        <section id="term-cache" class="content-section">
+          <h2>Browser Cache <a href="#term-cache" class="anchor-link">#</a></h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> Browsers download and save your
+              images and CSS to the hard drive so they don't have to re-download
+              them on every page visit. This makes the web vastly faster.
+            </p>
+            <div class="error-box">
+              <p>
+                <strong>Common Error: Stale Cache</strong><br />You edit your
+                CSS file, refresh the page, but the colors didn't change! The
+                browser is stubbornly loading the old CSS file from its cache.
+                Fix this by doing a "Hard Refresh" (Ctrl+Shift+R or
+                Cmd+Shift+R).
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="term-devtools" class="content-section">
+          <h2>
+            Developer Tools (DevTools)
+            <a href="#term-devtools" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> A suite of tools built directly into
+              every modern browser (usually opened by pressing F12 or
+              Right-Click -> Inspect).
+            </p>
+            <p class="term-desc">
+              <strong>Why use it?</strong> It is the single most important tool
+              you have. You can live-edit HTML, tweak CSS colors, test mobile
+              views, and read JavaScript error logs.
+            </p>
+          </div>
+        </section>
+
+        <section id="term-minification" class="content-section">
+          <h2>
+            Minification <a href="#term-minification" class="anchor-link">#</a>
+          </h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>What is it?</strong> The process of automatically removing
+              every single space, tab, and line-break from a CSS or JS file.
+            </p>
+            <p class="term-desc">
+              <strong>Why use it?</strong> Computers don't need spaces to read
+              code. Minifying code dramatically shrinks the file size, making
+              the website load faster. Files like <code>style.min.css</code> are
+              minified.
+            </p>
+          </div>
+        </section>
+
+        <section id="term-seo" class="content-section">
+          <h2>SEO & A11y <a href="#term-seo" class="anchor-link">#</a></h2>
+          <div class="entry">
+            <p class="term-desc">
+              <strong>SEO (Search Engine Optimization):</strong> Designing your
+              HTML so Google's bots can easily read it and rank your site higher
+              in search results. Heavy use of Semantic Tags and Meta tags helps
+              this.
+            </p>
+            <p class="term-desc">
+              <strong>A11y (Accessibility):</strong> Designing your HTML so
+              visually impaired users can navigate your site using keyboard tabs
+              and screen-reading software. (A11y is an abbreviation: A + 11
+              letters + y).
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+  </body>
+</html>

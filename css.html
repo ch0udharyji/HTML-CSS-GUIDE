@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Cheatsheet</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        .preview-box {
+            background-color: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            overflow-x: auto;
+            color: #333;
+        }
+        .demo-box {
+            background: #3b82f6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .demo-flex {
+            display: flex;
+            gap: 10px;
+            background: #e5e7eb;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .demo-flex-item {
+            background: #10b981;
+            color: white;
+            padding: 15px;
+            flex: 1;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background: #e5e7eb;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .demo-grid-item {
+            background: #8b5cf6;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <button id="mobile-menu-btn" class="mobile-menu-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+            <a href="index.html" style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text-muted)'">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back
+            </a>
+        </div>
+        <a href="html.html" style="background: var(--text); color: var(--bg); padding: 0.5rem 1.25rem; border-radius: 0.25rem; font-weight: 600; text-decoration: none; font-size: 0.9rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">&larr; HTML Cheat Sheet</a>
+    </nav>
+    
+    <div class="container">
+        <aside id="sidebar" class="sidebar">
+            <div class="search-container">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="search-input" class="search-input" placeholder="Search CSS...">
+            </div>
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-title">CSS Basics</div>
+                    <div class="sidebar-links">
+                        <a href="#selectors" class="sidebar-link">Selectors</a>
+                        <a href="#box-model" class="sidebar-link">Box Model</a>
+                        <a href="#colors" class="sidebar-link">Colors & Backgrounds</a>
+                    </div>
+                </div>
+                <div class="sidebar-group">
+                    <div class="sidebar-title">Layout</div>
+                    <div class="sidebar-links">
+                        <a href="#display-position" class="sidebar-link">Display & Position</a>
+                        <a href="#flexbox" class="sidebar-link">Flexbox</a>
+                        <a href="#grid" class="sidebar-link">Grid</a>
+                    </div>
+                </div>
+                <div class="sidebar-group">
+                    <div class="sidebar-title">Styling</div>
+                    <div class="sidebar-links">
+                        <a href="#typography" class="sidebar-link">Typography</a>
+                        <a href="#borders" class="sidebar-link">Borders & Shadows</a>
+                    </div>
+                </div>
+                <div class="sidebar-group">
+                    <div class="sidebar-title">Advanced</div>
+                    <div class="sidebar-links">
+                        <a href="#animations" class="sidebar-link">Transitions & Animations</a>
+                        <a href="#variables" class="sidebar-link">Variables & Functions</a>
+                        <a href="#responsive" class="sidebar-link">Responsive Design</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <h1 class="page-title">CSS Reference</h1>
+            <p class="page-desc">A complete guide to Cascading Style Sheets with clean examples and live previews.</p>
+            
+            <section id="selectors" class="content-section">
+                <h2>Selectors <a href="#selectors" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Targeting Elements</h3>
+                    <p>CSS selectors define the elements to which a set of CSS rules apply.</p>
+                    <div class="preview-box">
+                        <div class="demo-box" id="demo-id" style="background: #ef4444;">
+                            ID Selector (#demo-id)
+                        </div>
+                    </div>
+<pre><code class="language-css">/* Element Selector */
+p { color: #333; }
+
+/* Class Selector */
+.highlight { background-color: yellow; }
+
+/* ID Selector */
+#main-header { font-size: 2rem; }
+
+/* Descendant Selector (space) */
+article p { line-height: 1.6; }
+
+/* Direct Child Selector (>) */
+ul > li { list-style: none; }
+
+/* Pseudo-classes */
+a:hover { text-decoration: underline; }
+li:nth-child(even) { background: #eee; }</code></pre>
+                </div>
+            </section>
+
+            <section id="box-model" class="content-section">
+                <h2>Box Model <a href="#box-model" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Margin, Border, Padding, Content</h3>
+                    <p>The foundation of layout on the web. Every element is a rectangular box.</p>
+                    <div class="preview-box" style="text-align: center;">
+                        <div style="background: #fca5a5; padding: 20px; display: inline-block; border-radius: 4px;">
+                            <div style="background: #fcd34d; padding: 5px;">
+                                <div style="background: #6ee7b7; padding: 20px; border: 5px solid black;">
+                                    <div style="background: #93c5fd; padding: 15px; font-weight: bold;">Content</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.85rem; margin-top: 10px; margin-bottom: 0;">Red: Margin | Yellow: Border | Green: Padding | Blue: Content</p>
+                    </div>
+<pre><code class="language-css">.box {
+  /* Crucial: Includes padding and border in element's total width/height */
+  box-sizing: border-box; 
+  
+  width: 100%;
+  max-width: 400px;
+  height: 200px;
+  
+  margin: 20px auto; /* 20px top/bottom, auto left/right (centers it) */
+  padding: 15px;     /* Space inside the border */
+  border: 2px solid black;
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="colors" class="content-section">
+                <h2>Colors & Backgrounds <a href="#colors" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Colors and Gradients</h3>
+                    <p>Applying colors, opacity, and gradient backgrounds.</p>
+                    <div class="preview-box">
+                        <div style="background: linear-gradient(135deg, #6366f1, #ec4899); color: white; padding: 30px; text-align: center; border-radius: 8px; font-weight: bold; font-size: 1.2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                            Gradient Background
+                        </div>
+                    </div>
+<pre><code class="language-css">.element {
+  /* Text color formats */
+  color: #ff0000;              /* Hex */
+  color: rgb(255, 0, 0);       /* RGB */
+  color: rgba(255, 0, 0, 0.5); /* RGB + Alpha (Opacity) */
+  color: hsl(0, 100%, 50%);    /* Hue, Saturation, Lightness */
+  
+  /* Backgrounds */
+  background-color: #f8f9fa;
+  background-image: linear-gradient(to right, #6366f1, #ec4899);
+  background-size: cover;
+  background-position: center;
+  
+  opacity: 0.9; /* Makes entire element transparent */
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="display-position" class="content-section">
+                <h2>Display & Position <a href="#display-position" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Document Flow</h3>
+                    <p>Control how elements take up space and align themselves.</p>
+                    <div class="preview-box" style="position: relative; height: 150px; background: white; border: 1px solid #ccc; border-radius: 4px;">
+                        <div style="position: absolute; top: 10px; right: 10px; background: #ef4444; color: white; padding: 10px; border-radius: 4px;">Absolute (Top Right)</div>
+                        <div style="position: relative; top: 30px; left: 30px; display: inline-block; background: #10b981; color: white; padding: 10px; border-radius: 4px;">Relative Block</div>
+                    </div>
+<pre><code class="language-css">.display {
+  display: block;       /* Takes full width, starts new line */
+  display: inline;      /* Wraps content, ignores width/height */
+  display: inline-block;/* Wraps content, respects width/height */
+  display: none;        /* Removes from document completely */
+}
+
+.positioning {
+  position: static;     /* Default document flow */
+  position: relative;   /* Shifted relative to normal position */
+  position: absolute;   /* Positioned relative to nearest positioned ancestor */
+  position: fixed;      /* Fixed to viewport (window) */
+  position: sticky;     /* Toggles relative/fixed based on scroll */
+  
+  top: 0; left: 0;      /* Coordinates */
+  z-index: 10;          /* Stack order (higher is closer to user) */
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="flexbox" class="content-section">
+                <h2>Flexbox <a href="#flexbox" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>1-Dimensional Layout</h3>
+                    <p>Perfect for aligning items in rows or columns and distributing space.</p>
+                    <div class="preview-box">
+                        <div class="demo-flex">
+                            <div class="demo-flex-item">Item 1</div>
+                            <div class="demo-flex-item" style="flex: 2;">Item 2 (Grow 2)</div>
+                            <div class="demo-flex-item">Item 3</div>
+                        </div>
+                    </div>
+<pre><code class="language-css">.flex-container {
+  display: flex;
+  flex-direction: row;      /* row | column */
+  justify-content: center;  /* center | space-between | flex-start */
+  align-items: center;      /* stretch | center | flex-start */
+  flex-wrap: wrap;          /* allows items to wrap to next line */
+  gap: 15px;                /* spacing between items */
+}
+
+.flex-item {
+  flex-grow: 1;    /* Distribute remaining space */
+  flex-shrink: 0;  /* Prevent shrinking */
+  flex-basis: auto;/* Initial size */
+  /* Shorthand: flex: 1 0 auto; */
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="grid" class="content-section">
+                <h2>Grid <a href="#grid" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>2-Dimensional Layout</h3>
+                    <p>Perfect for complex, rigid page structures mapping columns and rows.</p>
+                    <div class="preview-box">
+                        <div class="demo-grid">
+                            <div class="demo-grid-item" style="grid-column: span 3;">Header (Span 3)</div>
+                            <div class="demo-grid-item" style="grid-row: span 2;">Sidebar (Span 2 rows)</div>
+                            <div class="demo-grid-item">Content 1</div>
+                            <div class="demo-grid-item">Content 2</div>
+                            <div class="demo-grid-item" style="grid-column: span 2;">Footer (Span 2)</div>
+                        </div>
+                    </div>
+<pre><code class="language-css">.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal fraction columns */
+  grid-template-rows: auto 1fr auto;
+  gap: 20px;
+}
+
+.grid-item {
+  grid-column: 1 / 4; /* Start line 1, end line 4 (spans 3 columns) */
+  /* OR */
+  grid-column: span 3;
+  grid-row: span 2;
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="typography" class="content-section">
+                <h2>Typography <a href="#typography" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Fonts and Text Styling</h3>
+                    <p>Controlling the appearance of text.</p>
+<pre><code class="language-css">p {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.2rem;       /* 1.2x root font size */
+  font-weight: 600;        /* 100-900 or normal/bold */
+  line-height: 1.5;        /* Spacing between lines */
+  letter-spacing: 0.05em;  /* Spacing between letters */
+  
+  text-align: center;      /* left | right | center | justify */
+  text-transform: uppercase;/* uppercase | lowercase | capitalize */
+  text-decoration: none;   /* none | underline | line-through */
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="borders" class="content-section">
+                <h2>Borders & Shadows <a href="#borders" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Depth and Outlines</h3>
+                    <div class="preview-box">
+                        <div style="background: white; border: 2px solid #3b82f6; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3); padding: 20px; text-align: center; color: #3b82f6; font-weight: bold; width: 250px; margin: 0 auto;">
+                            Card Element
+                        </div>
+                    </div>
+<pre><code class="language-css">.card {
+  border: 2px solid #3b82f6;
+  border-radius: 12px;
+  
+  /* x-offset y-offset blur spread color */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  
+  /* Outline doesn't affect box model dimensions (good for focus) */
+  outline: 2px dashed red;
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="animations" class="content-section">
+                <h2>Transitions & Animations <a href="#animations" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>State Changes and Keyframes</h3>
+                    <div class="preview-box" style="text-align: center;">
+                        <button style="background: #3b82f6; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#1e3a8a'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#3b82f6'; this.style.transform='translateY(0)';">
+                            Hover Me
+                        </button>
+                    </div>
+<pre><code class="language-css">/* Transitions (A to B state change) */
+.btn {
+  background: blue;
+  /* property duration timing-function delay */
+  transition: background 0.3s ease, transform 0.2s;
+}
+.btn:hover {
+  background: darkblue;
+  transform: translateY(-5px);
+}
+
+/* Animations (Complex multi-step) */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.loader {
+  animation: spin 1s linear infinite;
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="variables" class="content-section">
+                <h2>Variables & Functions <a href="#variables" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Custom Properties & Math</h3>
+<pre><code class="language-css">:root {
+  --primary: #3b82f6;
+  --spacing: 1rem;
+}
+
+.box {
+  background-color: var(--primary);
+  padding: calc(var(--spacing) * 2); /* Math in CSS */
+  
+  /* Clamp: min, preferred, max */
+  font-size: clamp(1rem, 2.5vw, 2rem); 
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="responsive" class="content-section">
+                <h2>Responsive Design <a href="#responsive" class="anchor-link">#</a></h2>
+                <div class="entry">
+                    <h3>Media Queries</h3>
+                    <p>Apply styles only when device criteria are met (like screen width).</p>
+<pre><code class="language-css">/* Mobile-first approach (default styles for small screens) */
+.container {
+  flex-direction: column;
+}
+
+/* Apply changes when screen is wider than 768px (Tablets/Desktops) */
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+/* Dark mode detection */
+@media (prefers-color-scheme: dark) {
+  body { background: #111; color: #fff; }
+}</code></pre>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6" /></svg>
+    </button>
+    
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+</body>
+</html>
